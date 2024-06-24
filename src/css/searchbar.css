@@ -1,0 +1,23 @@
+.search-bar{
+    padding: 8px;
+    /* width:30%; */
+    font-size: 1em;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.searchbox{
+    display: flex;
+    /* border: 1px solid red; */
+}
+
+@media  (max-width:568px) {
+    .search-bar{
+    padding: 5px;
+    margin-bottom: 5px;
+
+    } 
+}

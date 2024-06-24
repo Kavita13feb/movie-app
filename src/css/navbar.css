@@ -1,0 +1,26 @@
+.NavbarContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; 
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  padding: 1% 5%;
+  height:20px;
+  border:1px solid red;
+  background-color: rgb(133, 133, 234);
+  z-index: 100;
+  color:rgb(237, 225, 225)
+}
+
+.NavbarContainer>h3{
+ cursor: pointer; 
+}
+@media  (max-width:768px) {
+  .NavbarContainer{
+  height:25px;
+
+   padding: 1% 1%;
+
+  }
+}
