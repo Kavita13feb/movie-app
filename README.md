@@ -30,7 +30,7 @@ cd movie-app
 ```bash
 npm install
 ```
-### 2. Start Application
+### 3. Start Application
 ```bash
 npm start
 ```
