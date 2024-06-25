@@ -22,6 +22,7 @@ export const HomePage = () => {
   const[searchParams]=useSearchParams()
 const query =searchParams.get("query")
   const dispatch = useDispatch();
+  const [showScrollBtn, setShowScrollBtn] = useState(false);
 
   useEffect(() => {
    
@@ -67,7 +68,9 @@ const query =searchParams.get("query")
   },[query,page])
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-
+console.log(scrollHeight,clientHeight,window.innerHeight)
+const currentScrollPos = window.scrollY;
+    setShowScrollBtn(currentScrollPos > 1000)
     if (window.innerHeight + scrollTop + 1 >= scrollHeight) {
       setPage((prevPage) => prevPage + 1);
     }
@@ -87,7 +90,7 @@ const query =searchParams.get("query")
         <>
 
           <FilterMovies filters={filters} setFilters={setFilters} />
-          <button onClick={()=>window.scrollTo({top:0,behavior: "smooth"})} className="fixed-btn">ScrollToTop</button>
+        {showScrollBtn&&<button onClick={()=>window.scrollTo({top:0,behavior: "smooth"})} className="fixed-btn">ScrollToTop</button>}  
 
           <MovieList movies={movieData} />
         </>
