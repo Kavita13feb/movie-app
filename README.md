@@ -23,3 +23,8 @@ This is a responsive, mobile-first web application built with React that fetches
 ```bash
 git clone [https://github.com/your-username/movie-list-app.git](https://github.com/Kavita13feb/movie-app.git)
 cd movie-list-app
+
+### 2. Install Dependencies
+
+```bash
+npm install
