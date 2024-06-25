@@ -14,7 +14,7 @@ This is a responsive, mobile-first web application built with React that fetches
 ## Prerequisites
 
 - Node.js and npm installed on your local machine
-- TMDB API key and token
+
 
 ## Getting Started
 
