@@ -1,52 +1,41 @@
-Project Description:
+# Movie List Application
 
-Create a movie-browsing web application that allows users to search for movies with advanced filtering options and save their favorite movies. The application should be responsive and accessible.
+This is a responsive, mobile-first web application built with React that fetches and displays a list of movies from The Movie Database (TMDB) API. Users can search for movies, filter them by genres, release year range, and rating range, and use infinite scrolling to view more movies as they scroll down.
 
-Requirements:
+## Features
 
-Use a modern frontend framework/library (e.g., React, Vue, Angular, Svelte) to build the application to create a responsive, mobile-first UI.
+- Responsive, mobile-first UI
+- Fetches movie data from TMDB API
+- Displays a list of movies with title, poster image, and release year
+- Search feature to find movies by title
+- Infinite scrolling to handle large numbers of search results
+- Filtering options by genre, release year range, and rating range
 
-Use a public movie API (e.g., IMDb API, TMDB API) to fetch movie data.
+## Prerequisites
 
-Display a list of movies on the homepage, including the movie title, poster image, and release year.
+- Node.js and npm installed on your local machine
 
-Implement a search feature that allows users to search for movies by title. The search should update the list of movies dynamically as the user types.
 
-Implement infinite scrolling to handle large numbers of search results.
+## Getting Started
 
-Implement advanced filtering options for movies, such as filtering by genre, release year range, and rating range. Filters should update the list of movies dynamically. [optional]
+### 1. Clone the repository
 
-Allow users to save their favorite movies. Favorite movies should be stored locally (e.g., using browser storage). [optional]
+```bash
+git clone https://github.com/Kavita13feb/movie-app.git
+cd movie-app
 
-Ensure the application is accessible to users with disabilities by following accessibility best practices.
+```
 
-Write clean, well-structured code following best practices for front-end development.
+### 2. Install Dependencies
+```bash
+npm install
+```
+### 3. Start Application
+```bash
+npm start
+```
+###4 Deplyoed Link
 
-Provide documentation explaining your design decisions, how to run the application, and any additional features implemented.
-
-Evaluation Criteria:
-
-Functionality: Does the application meet the basic requirements? Does it work as expected?
-
-Code Quality: Is the code well-structured, readable, and maintainable? Does it follow best practices?
-
-UI/UX: Is the user interface intuitive and visually appealing? Does it provide a good user experience?
-
-Performance: Does the application load quickly and efficiently, even with a large number of movies?
-
-Accessibility: Is the application accessible to users with disabilities? Does it follow accessibility best practices?
-
-Documentation: Is there clear documentation explaining how to run the application and any additional features implemented?
-
-Speedy Submission: Was the application submitted significantly ahead of the deadline without compromising on quality?
-
-Bonus Points: For implementing additional features or going above and beyond the basic requirements in a creative and thoughtful way.
-
-Submission Details:
-
-Deadline: None. Candidates generally take 2-5 days.
-
-Mode of Submission: Push your code to a Git public repository and share the repository link. Optionally, you can deploy your code and share the deployment link as an additional submission.
-
-Please ensure that your submission includes the code repository link. The deployment link is optional and can be provided if you choose to deploy your application.
-
+```bash
+https://movie-app-eta-tawny.vercel.app/
+```
