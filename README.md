@@ -34,3 +34,8 @@ npm install
 ```bash
 npm start
 ```
+###4 Deplyoed Link
+
+```bash
+https://movie-app-eta-tawny.vercel.app/
+```
