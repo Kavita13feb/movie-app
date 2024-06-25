@@ -4,7 +4,8 @@ import { SearchBar } from "../components/SearchBar";
 import { Navbar } from "../components/Nabar";
 import { FilterMovies } from "../components/FilterMovies";
 import { useDispatch, useSelector } from "react-redux";
-import { getMoviesFromTMDB } from "../Redux/action";
+import { getMoviesFromTMDB, searchMovies } from "../Redux/action";
+import { useSearchParams } from "react-router-dom";
 
 const initFilter = {
   genre: "",
@@ -18,14 +19,39 @@ export const HomePage = () => {
   const [filters, setFilters] = useState(initFilter);
   const movieData = useSelector((store) => store.movieData);
   const isLoading = useSelector((store) => store.isLoading);
-
+  const[searchParams]=useSearchParams()
+const query =searchParams.get("query")
   const dispatch = useDispatch();
 
   useEffect(() => {
+   
+    if(!query||filters){
+
+      const params = {
+        include_adult: false,
+        include_video: false,
+        language: "en-US",
+        with_genres: filters.genre,
+        "primary_release_date.gte": filters.startYear,
+        "primary_release_date.lte": filters.endYear,
+        "vote_average.gte": filters.minRating,
+        "vote_average.lte": filters.maxRating,
+      };
+  
+      dispatch(getMoviesFromTMDB(params));
+    }
+      
+  
+    
+
+  }, [ filters]);
+
+  useEffect(()=>{
     const params = {
       include_adult: false,
       include_video: false,
       language: "en-US",
+      query,
       page,
       with_genres: filters.genre,
       "primary_release_date.gte": filters.startYear,
@@ -33,8 +59,12 @@ export const HomePage = () => {
       "vote_average.gte": filters.minRating,
       "vote_average.lte": filters.maxRating,
     };
-    dispatch(getMoviesFromTMDB(params));
-  }, [page, filters]);
+    if(query){
+    console.log(query,page)
+
+      dispatch(searchMovies(query,page))
+    }
+  },[query,page])
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
 

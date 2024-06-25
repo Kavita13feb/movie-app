@@ -4,20 +4,25 @@ import "../css/searchbar.css"
 import { getMoviesFromTMDB, searchMovies } from '../Redux/action';
 import { useDispatch } from 'react-redux';
 import { MdKeyboardVoice, MdOutlineKeyboardVoice } from "react-icons/md";
+import { useSearchParams } from 'react-router-dom';
 export const SearchBar = () => {
+  const [searchParams,setSearchParams]=useSearchParams()
 
-  const [query, setQuery] = useState('');
+  const inquery =searchParams.get("query")||""
+  const [query, setQuery] = useState(inquery);
+  const [page, setPage] = useState(1);
   const dispatch =useDispatch()
 
-  useEffect(()=>{
-    console.log(query)
-    if(query){
-      dispatch(searchMovies(query))
 
-    }else{
-      dispatch(getMoviesFromTMDB(1))
-    }
-},[query])
+const handleScroll = () => {
+  const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+
+  if (window.innerHeight + scrollTop + 1 >= scrollHeight) {
+    setPage((prevPage) => prevPage + 1);
+  }
+};
+
+
 
   return (
     <div className='searchbox'>
@@ -25,17 +30,20 @@ export const SearchBar = () => {
     className='search-bar'
       type="text"
       value={query}
-      onChange={(e) => setQuery(e.target.value)}
+      onChange={(e) =>{setQuery(e.target.value)
+        setSearchParams({query:e.target.value})
+
+      } }
       placeholder="Search for movies..."
     />
-    <VoiceSearch setQuery={setQuery}/>
+    <VoiceSearch setQuery={setQuery} setSearchParams={setSearchParams}/>
     </div>
     
   );
 };
 
 
-const VoiceSearch = ({setQuery}) => {
+const VoiceSearch = ({setQuery,setSearchParams}) => {
   const [transcript, setTranscript] = useState('');
 
   const [listening, setListening] = useState(false);
@@ -55,7 +63,7 @@ const VoiceSearch = ({setQuery}) => {
       const current = event.resultIndex;
       const transcript = event.results[current][0].transcript;
       setQuery(transcript);
-      // console.log('Recognized:', transcript);
+      setSearchParams({query:transcript})
     };
 
     recognition.onend = () => {

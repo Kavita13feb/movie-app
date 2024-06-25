@@ -5,6 +5,7 @@ import { SearchBar } from './SearchBar';
 
 
 import "../css/navbar.css"
+import { FaHeart } from 'react-icons/fa';
 
 export const Navbar = () => {
 
@@ -14,7 +15,7 @@ export const Navbar = () => {
     <div className='NavbarContainer'>
       <h3 onClick={()=>navigate("/")} >MovieApp</h3>
       <SearchBar  />
-        <p onClick={()=>navigate("/fav")}>Like</p>
+        <p onClick={()=>navigate("/fav")}> <FaHeart /></p>
     </div>
   );
 };

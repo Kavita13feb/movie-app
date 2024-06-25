@@ -1,5 +1,5 @@
 import React from 'react'
-import { GET_MOVIE_SUCCESS, MOVIE_FAILURE, MOVIE_GENRES, MOVIE_REQUEST } from './actionType'
+import { GET_MOVIE_SUCCESS, MOVIE_FAILURE, MOVIE_GENRES, MOVIE_REQUEST, MOVIE_SEARCH } from './actionType'
 
 const initState ={
     movieData:[],
@@ -15,6 +15,10 @@ export const reducer = (state=initState,{payload,type}) => {
     case MOVIE_REQUEST:
         return {...state,isLoading:true}
     case GET_MOVIE_SUCCESS:
+        return {...state,movieData:payload,isLoading:false}
+        case MOVIE_SEARCH:
+        return {...state,movieData:payload,isLoading:false}
+        case "infiniteScroll":
         return {...state,movieData:[...state.movieData,...payload],isLoading:false}
         case MOVIE_GENRES:
             return {...state,genres:payload,isLoading:false}

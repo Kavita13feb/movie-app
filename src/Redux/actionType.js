@@ -1,5 +1,7 @@
 export const MOVIE_REQUEST = "MOVIE_REQUEST";
 export const GET_MOVIE_SUCCESS = "GET_MOVIE_SUCCESS";
 export const MOVIE_FAILURE = "MOVIE_FAILURE";
+export const MOVIE_SEARCH = "MOVIE_SEARCH";
+
 
 export const MOVIE_GENRES = "MOVIE_GENRES";
